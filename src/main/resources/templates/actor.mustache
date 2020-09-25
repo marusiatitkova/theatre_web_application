@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Actors {{#actor}}{{name}}{{/actor}}
+    </title>
+</head>
+
+<body>
+    {{{menu}}}
+    {{#actor}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Actor</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{id}}</th>
+                <th scope="row">{{name}}</th>
+                <th scope="row">{{age}}</th>
+            </tr>
+            </tbody>
+        </table>
+        <div style="margin: auto;">
+            <form class="form-group" action="/actors/{{id}}/remove">
+                <button type="submit" class="btn btn-primary">Remove</button>
+            </form>
+        </div>
+
+        <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+            <form class="form-group" action="/actors/{{id}}/edit">
+                <label for="actorName">Actor name</label>
+                <input id = "actorName" class = "form-control" type="text" name="actorName" placeholder="Name" value="{{name}}">
+
+                <label for="actorAge">Actor age</label>
+                <input class="form-control" id="actorAge" type="number" name="actorAge" placeholder="Age" value="{{age}}">
+
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+    {{/actor}}
+</body>
+
+</html>

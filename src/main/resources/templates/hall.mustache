@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Hall {{#hall}}{{name}}{{/hall}}
+    </title>
+</head>
+
+<body>{{{menu}}}
+    <h1 style="margin:auto;">
+        Hall {{#hall}}{{name}}{{/hall}}
+    </h1>
+    <h2 style="margin:auto;">
+        Performances :
+    </h2>
+    {{#hall}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#performances}}
+                    <tr>
+                        <th scope="row">{{id}}</th>
+                        <th scope="row">{{#play}} <a href="/plays/{{id}}"> {{name}} </a> {{/play}}</th>
+                        <th scope="row">{{date}}</th>
+                    </tr>
+                {{/performances}}
+            </tbody>
+        </table>
+
+        <div style="margin: auto;">
+            <form class="form-group" action="/halls/{{id}}/remove">
+                <button type="submit" class="btn btn-primary">Remove</button>
+            </form>
+        </div>
+
+        <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+            <form class="form-group" action="/halls/{{id}}/edit">
+                <label for="hallName">Hall name</label>
+                <input id = "hallName" class = "form-control" type="text" name="hallName" placeholder="Name" value="{{name}}">
+
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+
+    {{/hall}}
+
+</body>
+
+</html>

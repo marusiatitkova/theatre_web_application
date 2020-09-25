@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Plays
+    </title>
+</head>
+
+<body>
+{{{menu}}}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#plays}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <th scope="row"><a href="/plays/{{id}}">{{name}}</a></th>
+            </tr>
+        {{/plays}}
+        </tbody>
+    </table>
+
+    <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+        <form class="form-group" action="/plays/add">
+            <label for="playName">Play name</label>
+            <input id = "playName" class = "form-control" type="text" name="playName" placeholder="Name">
+
+            <label for="actorIds[]">Actor</label>
+            <select class = "form-control" multiple name="actorIds[]">
+                {{#actors}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/actors}}
+            </select>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</body>
+
+</html>

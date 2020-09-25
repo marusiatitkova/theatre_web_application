@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Playbill
+    </title>
+</head>
+
+<body>{{{menu}}}
+<table>
+    <h2 style="margin:auto;">
+        List of performances :
+    </h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Performance #</th>
+            <th scope="col">Play</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#performances}}
+            <tr>
+                <th scope="row"><a href="/performances/{{id}}"> {{id}} </a></th>
+                {{#play}}
+                    <th scope="row"><a href="/plays/{{id}}" > {{name}} </a></th>
+                    <th scope="row">{{date}}</th>
+                {{/play}}
+
+            </tr>
+        {{/performances}}
+        </tbody>
+    </table>
+
+</table>
+
+</body>
+
+</html>

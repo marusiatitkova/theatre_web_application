@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Halls
+    </title>
+</head>
+
+<body>
+    {{{menu}}}
+    <h1 style="margin:auto;">
+        Halls :
+    </h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#halls}}
+                    <tr>
+                        <th scope="row">{{id}}</th>
+                        <th scope="row"><a href="/halls/{{id}}">{{name}}</a></th>
+                    </tr>
+                {{/halls}}
+            </tbody>
+        </table>
+    <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+        <form class="form-group" action="/halls/add">
+            <label for="hallName">Hall name</label>
+            <input id = "hallName" class = "form-control" type="text" name="hallName" placeholder="Name">
+
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Performances
+    </title>
+</head>
+
+<body>
+    {{{menu}}}
+    <h2 style="margin:auto;">
+        Performances :
+    </h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Play</th>
+            <th scope="col">Date</th>
+            <th scope="col">Actors</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#performances}}
+            <tr>
+                <th scope="row"> <a href="performances/{{id}}"> {{id}} </a> </th>
+                {{#play}}<th scope="row"><a href="/plays/{{id}}"> {{name}} </a> </th>{{/play}}
+                <th scope="row">{{date}}</th>
+                <th scope="row">{{#play}} {{#actors}} {{name}} ; {{/actors}} {{/play}}</th>
+            </tr>
+        {{/performances}}
+        </tbody>
+    </table>
+
+    <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+        <form class="form-group" action="/performances/add">
+            <label for="date">Date</label>
+            <input id = "date" class = "form-control" type="text" name="date" placeholder="Date">
+
+            <label for="hallId"> Hall </label>
+            <select id ="hallId" class = "form-control" name="hallId">
+                {{#halls}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/halls}}
+            </select>
+
+            <label for="playId">Play </label>
+            <select id="playId" class = "form-control" name="playId">
+                {{#plays}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/plays}}
+            </select>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</body>
+
+</html>

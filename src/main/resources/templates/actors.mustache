@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Actors
+    </title>
+</head>
+
+<body>{{{menu}}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#actors}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <th scope="row"><a href="/actors/{{id}}">{{name}}</a></th>
+                </tr>
+            {{/actors}}
+        </tbody>
+    </table>
+
+    <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+        <form class="form-group" action="/actors/add">
+            <label for="actorName">Actor name</label>
+            <input id = "actorName" class = "form-control" type="text" name="actorName" placeholder="Name">
+
+            <label for="actorAge">Actor age</label>
+            <input class="form-control" id="actorAge" type="number" name="actorAge" placeholder="Age">
+
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</body>
+
+</html>

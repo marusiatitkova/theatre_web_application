@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Play {{#play}} {{name}} {{/play}}
+    </title>
+</head>
+
+<body>{{{menu}}}
+
+    <h2 style="margin:auto;">
+        Play {{#play}} {{name}} {{/play}}
+    </h2>
+
+    {{#play}}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Performance #</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#performances}}
+            <tr>
+                <th scope="row"><a href="/performances/{{id}}"> Performance {{id}} </a> </th>
+                <th scope="row">{{date}}</th>
+            </tr>
+        {{/performances}}
+        </tbody>
+    </table>
+    <div style="margin: auto;">
+        <form class="form-group" action="/plays/{{id}}/remove">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </form>
+    </div>
+    <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+        <form class="form-group" action="/plays/{{id}}/edit">
+            <label for="playName">Play name</label>
+            <input id = "playName" class = "form-control" type="text" name="playName" placeholder="Name" value="{{name}}">
+
+            <label for="actorIds[]">Actor</label>
+            <select class = "form-control" multiple name="actorIds[]">
+                {{#actors}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/actors}}
+            </select>
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+    </div>
+    {{/play}}
+
+</body>
+
+</html>

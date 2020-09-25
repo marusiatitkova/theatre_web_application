@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    {{{links}}}
+    <title>
+        Performance {{#performance}} {{id}} {{/performance}}
+    </title>
+</head>
+
+<body>
+    {{{menu}}}
+    {{#performance}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Performance #</th>
+                <th scope="col">Date</th>
+                <th scope="col">Play</th>
+                <th scope="col">Hall</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{id}}</th>
+                <th scope="row">{{date}}</th>
+                <th scope="row">{{#play}} <a href="/plays/{{id}}"> {{name}} </a> {{/play}}</th>
+                <th scope="row">{{#hall}} <a href="/halls/{{id}}"> {{name}} </a> {{/hall}}</th>
+            </tr>
+            </tbody>
+        </table>
+        <div style="margin: auto;">
+            <form class="form-group" action="/performances/{{id}}/remove">
+                <button type="submit" class="btn btn-primary">Remove</button>
+            </form>
+        </div>
+
+        <div style="margin: auto;width: 50%; border: 3px solid green;padding: 10px;">
+            <form class="form-group" action="/performances/{{id}}/edit">
+                <label for="date">Date</label>
+                <input id = "date" class = "form-control" type="text" name="date" placeholder="Date" value="{{date}}">
+
+                <label for="hallId"> Hall </label>
+                <select id ="hallId" class = "form-control" name="hallId">
+                    {{#halls}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/halls}}
+                </select>
+
+                <label for="playId">Play </label>
+                <select id="playId" class = "form-control" name="playId">
+                    {{#plays}}
+                        <option value="{{id}}">{{name}}</option>
+                    {{/plays}}
+                </select>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+    {{/performance}}
+</body>
+
+</html>
